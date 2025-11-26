@@ -60,7 +60,7 @@ contract FactoryP2PTest is Test {
     function testCreateContractEvent() public {
       vm.expectEmit(true, false, false, true);
       
-      emit FactoryP2P.ContractDeployed(1, address(0), 1000000);
+      emit FactoryP2P.ContractDeployed(1, address(0), 1000000, "TestToken", "TEST");
 
       address tokenAddress = factory.createContract("TestToken", "TEST", 1000000);
 

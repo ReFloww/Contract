@@ -9,7 +9,7 @@ contract FactoryP2P {
     
     address public immutable usdtAddress;
 
-    event ContractDeployed(uint indexed contractId, address indexed contractAddress, uint maxSupply);
+    event ContractDeployed(uint indexed contractId, address indexed contractAddress, uint maxSupply, string name, string symbol);
 
     constructor(address _usdtAddress) {
         usdtAddress = _usdtAddress;
@@ -21,7 +21,7 @@ contract FactoryP2P {
         address newContractAddr = address(newToken);
         deployedContracts.push(newContractAddr);
         
-        emit ContractDeployed(counterId, newContractAddr, maxSupply);
+        emit ContractDeployed(counterId, newContractAddr, maxSupply, name, symbol);
         counterId++;
         
         return newContractAddr;
